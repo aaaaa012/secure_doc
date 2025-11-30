@@ -1,7 +1,7 @@
 # Executive Summary
 
 ## Project Overview
-The **docssss** repository contains a collection of business analysis documentation that demonstrates a comprehensive approach to capturing project requirements, stakeholder insights, and solution design. This documentation suite is structured to showcase the analytical rigor and communication skills of a Business Analyst, making it an ideal portfolio piece for job applications.
+The repository contains a collection of business analysis documentation that demonstrates a comprehensive approach to capturing project requirements, stakeholder insights, and solution design. This documentation suite is structured to showcase the analytical rigor and communication skills of a Business Analyst, making it an ideal portfolio piece.
 
 ## Objectives
 - Provide a clear, concise overview of the project's purpose and value proposition.
@@ -21,9 +21,7 @@ By presenting a well‑organized set of BA artifacts, this project demonstrates 
 - Business & Functional Requirements
 - Non‑Functional Requirements
 - User Stories & Acceptance Criteria
-- Roadmap & Milestones
 - Risk Assessment
-- Glossary
 - Architecture & Workflow Diagrams
 
 ---
