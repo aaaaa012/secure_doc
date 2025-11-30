@@ -44,19 +44,27 @@ This flowchart describes the process of sharing a document via QR code.
 
 ```mermaid
 flowchart TD
-    A[Start] --> B{User Logged In?}
-    B -- No --> C[Redirect to Login]
-    B -- Yes --> D[Upload Document]
-    D --> E[Generate Unique Link]
-    E --> F[Create QR Code]
-    F --> G[Display to User]
-    G --> H[User Shares QR Code]
-    H --> I[Recipient Scans Code]
-    I --> J{Access Code Required?}
-    J -- Yes --> K[Prompt for Code]
-    K --> L{Code Correct?}
-    L -- No --> K
-    L -- Yes --> M[Show Document]
-    J -- No --> M
-    M --> N[End]
+    A[Start] --> B{Scanner is Owner?}
+    
+    %% Owner Flow
+    B -- Yes --> C[Prompt for PIN]
+    C --> D{PIN Correct?}
+    D -- Yes --> E[Show All Documents]
+    D -- No --> C
+    
+    %% Guest Flow
+    B -- No --> F[Show Document Hub]
+    F --> G[Guest Fills Form (Name, Email, Phone)]
+    G --> H[Guest Selects Documents]
+    H --> I[Send Access Request]
+    I --> J[Owner Receives Notification]
+    J --> K{Owner Approves?}
+    K -- Yes --> L[Select Permission (View/Download)]
+    L --> M[Send Access Link to Guest]
+    M --> N[Guest Accesses Selected Docs]
+    K -- No --> O[Request Denied]
+    
+    E --> P[End]
+    N --> P
+    O --> P
 ```

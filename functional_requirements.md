@@ -44,10 +44,18 @@ The backend exposes a RESTful API. Base URL: `http://localhost:3000/api`
   - **Response**: `200 OK` - Returns file stream or download link.
 
 ### 2.3 Sharing & QR Code Endpoints
-- **POST** `/share/generate-qr`
+- **POST** `/share/get-qr`
   - **Headers**: `Authorization: Bearer <token>`
-  - **Payload**: `{ "documentId": "123", "accessCode": "optional-code" }`
-  - **Response**: `200 OK` - `{ "qrCodeUrl": "data:image/png;base64,...", "shareLink": "http://..." }`
+  - **Response**: `200 OK` - `{ "qrCodeUrl": "...", "hubLink": "..." }` (Single dynamic link per user)
+
+- **POST** `/share/guest-request`
+  - **Payload**: `{ "guestName": "...", "guestEmail": "...", "guestPhone": "...", "selectedDocIds": ["1", "2"] }`
+  - **Response**: `200 OK` - `{ "message": "Request sent to owner" }`
+
+- **POST** `/share/grant-access`
+  - **Headers**: `Authorization: Bearer <token>`
+  - **Payload**: `{ "requestId": "999", "action": "APPROVE", "permission": "VIEW_ONLY" }` (or "VIEW_DOWNLOAD")
+  - **Response**: `200 OK` - `{ "status": "APPROVED" }`
 
 ---
 
@@ -58,10 +66,18 @@ The backend exposes a RESTful API. Base URL: `http://localhost:3000/api`
 - **FR-DOC-02**: The system shall validate file size (max 10MB) and type before processing.
 - **FR-DOC-03**: The system shall store files securely on the server's file system or cloud storage.
 
-### 3.2 QR Code Sharing
-- **FR-SHARE-01**: The system shall generate a unique URL for each shared document.
-- **FR-SHARE-02**: The system shall generate a QR code image corresponding to the unique URL.
-- **FR-SHARE-03**: If an access code is provided, the shared link must prompt for it before displaying the document.
+### 3.2 Dynamic QR & Access Control
+- **FR-SHARE-01 (Dynamic Hub)**: The system shall generate a single, permanent QR code per user. This QR code points to a dynamic "Document Hub" page.
+- **FR-SHARE-02 (Auto-Update)**: The Document Hub shall always display the current list of the owner's available documents. If a file is deleted, it disappears from the list; if added, it appears.
+- **FR-SHARE-03 (Owner Mode)**: If the scanner is the owner (logged in), the system prompts for their PIN. Success -> Full Access.
+- **FR-SHARE-04 (Guest Mode)**: If the scanner is a guest:
+    1.  **Form**: Guest must enter Name, Email, and Phone.
+    2.  **Selection**: Guest sees a list of documents and selects which ones they need.
+    3.  **Request**: Submitting the form sends an access request to the owner.
+- **FR-SHARE-05 (Owner Approval)**: The owner receives a notification and can:
+    -   Approve (Grant "View Only" or "View & Download").
+    -   Reject.
+- **FR-SHARE-06 (Access Grant)**: Upon approval, the guest receives a secure link via email to access *only* the approved documents.
 
 ### 3.3 Dashboard
 - **FR-DASH-01**: The user dashboard shall display a list of all uploaded documents with metadata (name, date).

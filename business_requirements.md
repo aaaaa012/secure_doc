@@ -7,13 +7,15 @@ This document outlines the high-level business requirements for the **SecureDoc*
 
 | ID | Requirement Category | Description | Priority |
 |----|----------------------|-------------|----------|
-| **BR-001** | **User Management** | The system must allow users to create accounts and log in securely to manage their documents. | High |
+| **BR-001** | **User Management** | The system must allow users to create accounts (setting a secure PIN) and log in securely to manage their documents. | High |
 | **BR-002** | **Document Security** | All uploaded documents must be stored securely and accessible only to authorized users. | High |
-| **BR-003** | **Easy Sharing** | Users must be able to share documents via a simple mechanism, such as a QR code or a unique link. | High |
+| **BR-003** | **Dynamic QR Hub** | The system must provide a single, dynamic QR code per user that auto-updates to reflect the current list of available documents. | High |
 | **BR-004** | **Access Control** | The system must support optional access codes for shared documents to add an extra layer of security. | Medium |
 | **BR-005** | **Auditability** | The system should track when documents are uploaded and accessed (basic logging). | Low |
 | **BR-006** | **Scalability** | The system must be capable of handling multiple concurrent uploads without performance degradation. | Medium |
 | **BR-007** | **Compliance** | The solution must adhere to basic data privacy standards (e.g., encryption at rest). | High |
+| **BR-008** | **Access Workflow** | Owners must be able to approve/reject requests and specify permission levels (View Only vs. View & Download). | High |
+| **BR-009** | **Guest Data Collection** | Guests must provide their details (Name, Email, Phone) and select specific documents before requesting access. | High |
 
 ## 3. Scope
 ### In Scope

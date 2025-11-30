@@ -39,12 +39,33 @@
 ---
 
 ## Epic 3: Sharing
-**As a** user,
-**I want to** generate a QR code for a document,
-**So that** I can share it easily with others.
+**As a** guest user,
+**I want to** scan a QR code and see a list of available documents,
+**So that** I can select which ones I need access to.
 
 ### Acceptance Criteria
-- [ ] User selects a document to share.
-- [ ] System generates a unique sharing URL.
-- [ ] System displays a QR code for that URL.
-- [ ] (Optional) User can set an access code.
+- [ ] System displays a "Document Hub" page.
+- [ ] List shows all current documents from the owner.
+- [ ] Guest can select multiple documents via checkboxes.
+
+---
+
+**As a** guest user,
+**I want to** provide my contact details (Name, Email, Phone),
+**So that** the owner knows who is requesting access.
+
+### Acceptance Criteria
+- [ ] Form requires Name, Email, and Phone.
+- [ ] Submission triggers an access request to the owner.
+
+---
+
+**As an** owner,
+**I want to** review requests and grant specific permissions (View vs. Download),
+**So that** I control how my documents are used.
+
+### Acceptance Criteria
+- [ ] Owner sees guest details and selected documents.
+- [ ] Owner can select "View Only" or "View & Download".
+- [ ] Owner can "Approve" or "Reject".
+- [ ] Approved guest receives a link valid only for selected docs.
