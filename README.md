@@ -16,14 +16,14 @@
 
 ## 📂 Documentation Hub
 
-The documentation for this project is organized into the following modules. Usage: `Move existing files into a 'documentation' folder`.
+The documentation for this project is organized into the following modules:
 
 | Document | Description |
 | :--- | :--- |
-| **[Business Overview](./documentation/business_overview.md)** | High-level vision, target audience, and market analysis. |
-| **[requirements](./documentation/business_requirements.md)** | Detailed BRD covering functional and non-functional needs. |
-| **[Architecture](./documentation/architecture_diagrams.md)** | System design, encryption flows, and cloud infrastructure. |
-| **[Risk Assessment](./documentation/risk_assessment.md)** | Security risks, mitigation strategies, and compliance check. |
+| **[Project Overview](./documentation/01_Project_Overview.md)** | High-level vision, target audience, and market analysis. |
+| **[System Requirements](./documentation/02_Requirements.md)** | Detailed BRD covering functional and non-functional needs. |
+| **[Architecture](./documentation/03_Architecture.md)** | System design, encryption flows, and cloud infrastructure. |
+| **[Security & Risks](./documentation/04_Security_and_Risks.md)** | Security risks, mitigation strategies, and compliance check. |
 
 ---
 
